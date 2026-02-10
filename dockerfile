@@ -26,8 +26,8 @@ RUN set -eux; \
   # 3) OpenRouteService API URL auf lokalen ORS umbiegen
   find . -type f -name "*.js" -print0 \
     | xargs -0 sed -i \
-      's#https://api\.openrouteservice\.org/#https://localhost:8081/#g'
-
+      's#https://api\.openrouteservice\.org/#https://localhost:8081/#g'; \
+  \
   # 4) Mini-Check: ist die neue Koordinate wirklich drin?
   grep -R --line-number "HALTERN_COORDS = \\[51\\.7420, 7\\.1810\\]" . || true
 
