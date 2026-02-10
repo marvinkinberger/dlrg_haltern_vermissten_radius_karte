@@ -1,0 +1,15 @@
+ors:
+  engine:
+    profile_default:
+      build:
+        source_file: /home/ors/files/muenster-regbez-260209.osm.pbf
+    profiles:
+      foot-walking:
+        enabled: true
+      cycling-mountain:
+        enabled: true
+      driving-car:
+        enabled: true
+
+server:
+  port: 8080
