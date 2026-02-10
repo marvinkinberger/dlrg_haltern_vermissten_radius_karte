@@ -1,5 +1,7 @@
 version: "3.9"
 
+name: dlrg-haltern_vermissten-radius-karte
+
 services:
   ors:
     image: openrouteservice/openrouteservice:latest
