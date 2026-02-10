@@ -23,7 +23,12 @@ RUN set -eux; \
         sed -i -E "s/(const|let|var)[[:space:]]+HALTERN_COORDS[[:space:]]*=[[:space:]]*\\[[^]]+\\];/const HALTERN_COORDS = [51.7420, 7.1810];/g" "{}"; \
       '; \
   \
-  # 3) Mini-Check: ist die neue Koordinate wirklich drin?
+  # 3) OpenRouteService API URL auf lokalen ORS umbiegen
+  find . -type f -name "*.js" -print0 \
+    | xargs -0 sed -i \
+      's#https://api\.openrouteservice\.org/#https://localhost:8081/#g'
+
+  # 4) Mini-Check: ist die neue Koordinate wirklich drin?
   grep -R --line-number "HALTERN_COORDS = \\[51\\.7420, 7\\.1810\\]" . || true
 
 FROM nginx:1.27-alpine
