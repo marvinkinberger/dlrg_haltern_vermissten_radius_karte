@@ -1,0 +1,14 @@
+ors:
+  engine:
+    source_file: /ors/data/germany-latest.osm.pbf
+    graph_location: /ors/graphs
+    profiles:
+      car:
+        enabled: true
+      foot:
+        enabled: true
+      bike:
+        enabled: true
+
+  server:
+    port: 8080
