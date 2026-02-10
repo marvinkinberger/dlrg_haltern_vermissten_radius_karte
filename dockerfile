@@ -17,7 +17,7 @@ RUN set -eux; \
   find . -type f -name "map.js" -print0 | xargs -0 -I{} sh -c ' sed -i -E "s/(const|let|var)[[:space:]]+LANDAU_COORDS[[:space:]]*=[[:space:]]*\\[[^]]+\\];/const HALTERN_COORDS = [51.7420, 7.1810];/g" "{}"; sed -i -E "s/(const|let|var)[[:space:]]+HALTERN_COORDS[[:space:]]*=[[:space:]]*\\[[^]]+\\];/const HALTERN_COORDS = [51.7420, 7.1810];/g" "{}";'; \
   \
   # 3) OpenRouteService API URL auf lokalen ORS umbiegen
-  find . -type f -name "*.js" -print0 | xargs -0 -r sed -i 's#https://api\.openrouteservice\.org/#http://ors:8080/ors/#g';
+  find . -type f -name "*.js" -print0 | xargs -0 -r sed -i 's#https://api\.openrouteservice\.org/#http://localhost:8080/ors/#g';
 
 FROM nginx:1.27-alpine
 RUN apk add --no-cache wget
